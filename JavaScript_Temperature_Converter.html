@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script type="text/javascript">
-function toCelsius (form) {
-  form.celsius.value = (form.fahrenheit.value-32)*(5/9);
-
-}
-function toFahrenheit (form) {
-  form.fahrenheit.value = form.celsius.value * 1.8 + 32;
-
-}
-</script> 
+<title>JavaScript Temperature Converter</title>
 </head>
+
 <body>
 <h1 align="center">Temperature Converter</h1>
 <form align="center">
@@ -22,7 +15,16 @@ Fahrenheit: <input type="text" size="15" name="fahrenheit"><br/>
 <input type="button" value="Calculate Fahrenheit" onclick= "toFahrenheit(this.form)">
 <input type="button" value="Calculate Celsius" onclick= "toCelsius(this.form)"> 
 </form>
+<script type="text/javascript">
+function toCelsius (form) {
+  form.celsius.value = (form.fahrenheit.value-32)*(5/9);
 
+}
+function toFahrenheit (form) {
+  form.fahrenheit.value = form.celsius.value * 1.8 + 32;
+
+}
+</script> 
 </body>
 
 </html>

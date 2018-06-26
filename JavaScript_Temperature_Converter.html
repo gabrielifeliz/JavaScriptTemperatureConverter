@@ -3,28 +3,51 @@
 
 <head>
 <title>JavaScript Temperature Converter</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<style>
+body { background-image: url("http://www.mwellp.com/site/wp-content/uploads/2016/03/wind_chill_advisory_medium-300x225.jpg"); 
+background-size: cover;
+}
+.container {
+	background-color: rgba(255, 255, 255, 0.95);
+}
+input { border-style: outset; }
+</style>
 </head>
 
 <body>
-<h1 align="center">Temperature Converter</h1>
-<form align="center">
-Celsius: <input type="text" size="15" name="celsius"><br/>
-<h1></h1>
-Fahrenheit: <input type="text" size="15" name="fahrenheit"><br/>
-<h1></h1>
-<input type="button" value="Calculate Fahrenheit" onclick= "toFahrenheit(this.form)">
-<input type="button" value="Calculate Celsius" onclick= "toCelsius(this.form)"> 
-</form>
+<div class="container">
+	<br/><br/>
+	<h1>Wind Chill Calculator</h1><br/><br/>
+	<form>
+
+	<div class="col-7 form-group">
+		<strong>Temperature (Fahrenheit):</strong><br/><input class="form-control border border-dark" type="text" size="15" name="fahrenheit"><br/><br/>
+	</div>
+
+	<div class="col-7  form-group">
+		<strong>Wind Speed (miles per hour):</strong><br/><input class="form-control border border-dark" type="text" size="15" name="windspeed"><br/><br/>
+	</div>	
+
+	<div class="col-7 form-group">
+		<strong>Wind Chill:</strong><br/><input class="form-control border border-dark" type="text" name="windchill" readonly>
+	</div>
+	
+	<br/><br/>
+	<input type="button" value="Calculate Wind Chill" onclick="windChillCalculation(this.form)">
+
+	</form>
+	<br/><br/>
+</div>
 <script type="text/javascript">
-function toCelsius (form) {
-  form.celsius.value = (form.fahrenheit.value-32)*(5/9);
+function windChillCalculation (form) {
+  form.windchill.value = 35.74 + (0.6215 * form.fahrenheit.value) + ((0.4275 * form.fahrenheit.value) - 35.75) * (form.windspeed.value ** 0.16);
 
 }
-function toFahrenheit (form) {
-  form.fahrenheit.value = form.celsius.value * 1.8 + 32;
-
-}
-</script> 
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
 </body>
 
 </html>
